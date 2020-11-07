@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swim App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+    <h1>Swim App</h1>
+    <p>This app shows how much I have swam each day and uses the data in a dashboard to give me more insights about my swimming and progress.</p>
+
+    <form id="swim-data" action="#" method="GET">
+        <label for="laps">Laps<input type="number" id="laps" name="laps"></label>
+        <label for="feeling">
+            <select name="feeling" id="feeling">
+                <option value="good">Good</option>
+                <option value="meh">Okay</option>
+                <option value="tired">Tired</option>
+                <option value="bad">Bad</option>
+            </select>
+        </label>
+        <input type="submit" value="submit" id="submit">
+    </form>
+
+    <h2>Results</h2>
+    <table>
+        <tbody id="output">
+            <tr class="data-header">
+                <th>Date</th>
+                <th>Laps</th>
+                <th>Notes</th>
+            </tr>
+        </tbody>
+    </table>
+
+    
+
+
+
+
+   <script src="/assets/js/main.js"></script> 
+</body>
+</html>
