@@ -10,13 +10,15 @@
 <body>
 
     <h1>Swim App</h1>
-    <p>This app shows how much I have swam each day and uses the data in a dashboard to give me more insights about my swimming and progress.</p>
+    <p>This app shows how much I swim each day and uses the data in a dashboard to give me more insights about my swimming and progress.</p>
 
     <form id="swim-data" action="#" method="GET">
         <label for="laps">Laps<input type="number" id="laps" name="laps"></label>
-        <label for="feeling">
-            <select name="feeling" id="feeling">
+        <label for="notes" value="notes">
+            <select name="notes" id="notes">
+                <option value="">--</option>
                 <option value="good">Good</option>
+                <option value="sick">Sick</option>
                 <option value="meh">Okay</option>
                 <option value="tired">Tired</option>
                 <option value="bad">Bad</option>
@@ -29,6 +31,7 @@
     <table>
         <tbody id="output">
             <tr class="data-header">
+                <th>Remove</th>
                 <th>Date</th>
                 <th>Laps</th>
                 <th>Notes</th>
