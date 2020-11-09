@@ -1,4 +1,6 @@
 
+//Swim App
+
 const submit = document.querySelector("#submit");
 const form = document.querySelector("#swim-data");
 const output = document.querySelector("#output");
@@ -23,7 +25,7 @@ const date = `${day}/${month}/${year}`;
 const laps = document.querySelector("#laps");
 const notes = document.querySelector("#notes");
 
-
+//Store Swim Data in LS
 function storeSwimData(a) {
     let data;
     if (localStorage.getItem("data") === null) {
@@ -35,6 +37,7 @@ function storeSwimData(a) {
     localStorage.setItem('data', JSON.stringify(data));
 }
 
+//Add Swim Data to DOM
 function addSwimData(e) {
     e.preventDefault();
     //Remove 
@@ -124,5 +127,5 @@ function getSwimData() {
 
 function deleteSwimData() {
     
-    
+
 }
