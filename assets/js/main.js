@@ -8,6 +8,7 @@ const del = document.querySelector("a");
 
 //Event listeners
 function listeners() {
+    document.body.addEventListener("click", removeSwimData);
     document.addEventListener("DOMContentLoaded", getSwimData);
     submit.addEventListener("click", addSwimData);
 }
@@ -25,13 +26,11 @@ const laps = document.querySelector("#laps");
 const notes = document.querySelector("#notes");
 
 
-
-
 //Add Swim Data to DOM
 function addSwimData(e) {
     e.preventDefault();
     //Remove 
-        let remove = document.createElement('td');
+    let remove = document.createElement('td');
         remove.className = 'data-remove';
 
         let link = document.createElement('a')
@@ -64,9 +63,22 @@ function addSwimData(e) {
     tr.appendChild(lapsTD);
     tr.appendChild(notesTD);
     
-    output.appendChild(tr);
+    // //Analysis Data
+    // const trData = document.createElement('tr');
+    // tr.className = 'data-content'
 
-    //Store data as an object 
+    // const averageLaps = document.createElement('td');
+    // averageLaps.className = 'average-laps';
+
+    // trData.appendChild(averageLaps)
+
+    //Input swim data between headers
+    output.insertBefore(tr, output.children[1]);
+
+    // //Input analysis after swim data
+    // output.insertAfter(trData, output.children[1]);
+    
+    //Store data as an object
     let dataObj = {
         date: date,
         laps: laps.value,
@@ -75,15 +87,18 @@ function addSwimData(e) {
     //LS the object
     storeSwimData(dataObj);
 
-    remove.addEventListener("click", removeSwimData);
 }
+
 
 //Remove each 
 function removeSwimData(e) {
-    if (e.target.classList = "data-content") {
-        e.target.parentElement.remove();
+
+    if (e.target.parentElement.classList.contains("data-remove"
+    )) {
+        e.target.parentElement.parentElement.remove();
+        removeLS(e.target.parentElement.parentElement);
     }
-    removeLS(e.target.parentElement.parentElement);
+    
 }
 
 
@@ -150,7 +165,8 @@ function getSwimData() {
 }
 
 
-function removeLS() {
+function removeLS(row) {
+    console.log(row);
     let data;
     if (localStorage.getItem("data") === null) {
         data = [];
@@ -158,8 +174,8 @@ function removeLS() {
       data = JSON.parse(localStorage.getItem("data"));
     }
 
-    data.forEach(function (dataObj, index) {
-        if (dataObj.textContent === input) {
+    data.forEach(function (info, index) {
+        if (row.textContent === info) {
             data.splice(index, 1)
         }
     });
@@ -167,6 +183,8 @@ function removeLS() {
     localStorage.setItem('data', JSON.stringify(data));
 
 }
+
+
 
 
 
