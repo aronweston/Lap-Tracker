@@ -9,44 +9,69 @@
 </head>
 <body>
 
-    <h1>Swim App</h1>
-    <p>This app shows how much I swim each day and uses the data in a dashboard to give me more insights about my swimming and progress.</p>
+  
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Aron's Lap Tracker</span>
+    </nav>
 
-    <form id="swim-data" action="#" method="GET">
-        <label for="laps">Laps<input type="number" id="laps" name="laps"></label>
-        <label for="notes" value="notes">
-            <select name="notes" id="notes">
-                <option value="">--</option>
-                <option value="good">Good</option>
-                <option value="sick">Sick</option>
-                <option value="meh">Okay</option>
-                <option value="tired">Tired</option>
-                <option value="bad">Bad</option>
-            </select>
-        </label>
-        <input type="submit" value="submit" id="submit">
-    </form>
+    <header class="header">
 
-    <h2>Results</h2>
-    <table>
-        <tbody id="output">
-            <tr class="data-header">
-                <th>Remove</th>
-                <th>Date</th>
-                <th>Laps</th>
-                <th>Notes</th>
-            </tr>
-            <!-- <tr class="data-analysis">
-                <th>Average Laps</th>
-            </tr> -->
-        </tbody>
-    </table>
+    </header>
 
+    <!-- Form inputs etc -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-3 mx-auto">
+                <!-- Content -->
+                <form id="swim-data" action="#" method="GET">
+                    <div class="form-group">
+                        <label for="laps">Laps:</label>
+                        <input type="number" class="form-control" id="laps" name="laps">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes" value="notes">Feeling:</label>
+                        <select class="form-control" name="notes" id="notes">
+                            <option value="">--</option>
+                            <option value="Brillian">Brilliant</option>
+                            <option value="Good">Good</option>
+                            <option value="Avg">Average</option>
+                            <option value="Tired">Tired</option>
+                            <option value="Sick">Sick</option>
+                            <option value="Lethargic">Lethargic</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="submit" class="btn btn-primary">Add</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+        
+    <!-- Output Table -->
+    <section class="container">
+        <div class="row">
+            <h2>Results</h2>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr id="data-header">
+                        <th scope="col">Remove</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Laps</th>
+                        <th scope="col">Notes</th>
+                    </thead>           
+                    <tbody id="output"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
     
 
+     
 
-
-
+    <script src="/assets/js/functions.js"></script>
    <script src="/assets/js/main.js"></script> 
 </body>
 </html>
