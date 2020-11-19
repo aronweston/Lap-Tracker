@@ -1,17 +1,17 @@
-//Date
-const newDate = new Date();
-let month = newDate.getMonth() + 1;
-let day = newDate.getDate();
-let year = newDate.getFullYear();
-
-//Variables
-const date = `${day}/${month}/${year}`;
-const laps = document.querySelector("#laps");
-const notes = document.querySelector("#notes");
-
 
 class Swim {
-    //Add Swim Data to DOM
+    constructor() {
+        this.newDate = new Date();
+        this.month = newDate.getMonth() + 1;
+        this.day = newDate.getDate();
+        this.year = newDate.getFullYear();
+
+        //Variables
+        this.date = `${day}/${month}/${year}`;
+        this.laps = document.querySelector("#laps");
+        this.notes = document.querySelector("#notes"); 
+    }
+    
     addSwimData(e) {
         e.preventDefault();
         //Remove 
@@ -47,16 +47,14 @@ class Swim {
         tr.appendChild(dateTD);
         tr.appendChild(lapsTD);
         tr.appendChild(notesTD);
-        
-
+    
         output.insertBefore(tr, output.children[1]);
 
-        
         //Store data as an object
         let dataObj = {
-            date: date,
-            laps: laps.value,
-            notes: notes.value
+            date: this.date,
+            laps: this.laps.value,
+            notes: this.notes.value
         }
         //LS the object
         storeSwimData(dataObj);
@@ -120,6 +118,17 @@ class Swim {
         }    
     } 
 
+    storeLS(dataObj) {
+        let data;
+        if (localStorage.getItem("data") === null) {
+            data = [];
+        } else {
+            data = JSON.parse(localStorage.getItem("data"));
+        }
+        data.push(dataObj);
+        localStorage.setItem('data', JSON.stringify(data));
+    }
+
     removeLS(row) {
         console.log(row);
 
@@ -139,17 +148,7 @@ class Swim {
         localStorage.setItem('data', JSON.stringify(data));
     }
 
-    //Store in local storage 
-    storeSwimData(dataObj) {
-        let data;
-        if (localStorage.getItem("data") === null) {
-            data = [];
-        } else {
-            data = JSON.parse(localStorage.getItem("data"));
-        }
-        data.push(dataObj);
-        localStorage.setItem('data', JSON.stringify(data));
-    }
+    
 }
 
 
