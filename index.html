@@ -5,50 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swim App</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
-
-  
+    <!-- Navigation -->
     <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">Aron's Lap Tracker</span>
     </nav>
-
-    <header class="header">
-
-    </header>
-
-    <!-- Form inputs etc -->
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 mt-3 mx-auto">
-                <!-- Content -->
-                <form id="swim-data" action="#" method="GET">
-                    <div class="form-group">
-                        <label for="laps">Laps:</label>
-                        <input type="number" class="form-control" id="laps" name="laps">
-                    </div>
-                    <div class="form-group">
-                        <label for="notes" value="notes">Feeling:</label>
-                        <select class="form-control" name="notes" id="notes">
-                            <option value="">--</option>
-                            <option value="Brillian">Brilliant</option>
-                            <option value="Good">Good</option>
-                            <option value="Avg">Average</option>
-                            <option value="Tired">Tired</option>
-                            <option value="Sick">Sick</option>
-                            <option value="Lethargic">Lethargic</option>
-                        </select>
-                    </div>
-                    <button type="submit" id="submit" class="btn btn-primary">Add</button>
-                </form>
-            </div>
+    <!-- Form -->  
+        <div class="row mt-5">
+            <!-- Content -->
+            <form id="swim-data">
+                <!-- Laps -->
+                <div class="form-group">
+                    <label for="laps">Laps:</label>
+                    <input type="number" class="form-control" id="laps" name="laps">
+                </div>
+                <!-- Feeling -->
+                <div class="form-group">
+                    <label for="feeling" value="feeling">Feeling:</label>
+                    <select class="form-control" name="feeling" id="feeling">
+                        <option value="">Select an option</option>
+                        <option value="Brilliant">Brilliant</option>
+                        <option value="Good">Good</option>
+                        <option value="Average">Average</option>
+                        <option value="Skip">Skip</option>
+                        <option value="Tired">Tired</option>
+                        <option value="Sick">Sick</option>
+                        <option value="Lethargic">Lethargic</option>
+                    </select>
+                </div>
+                <!-- Submit -->
+                <input type="submit" id="submit" value="Add" class="btn btn-primary"></input>
+            </form>
         </div>
-    </div>
+
         
-    <!-- Output Table -->
-    <section class="container">
-        <div class="row">
+        <!-- Output Table -->
+        <div class="row mt-5">
             <h2>Results</h2>
             <div class="table-responsive">
                 <table class="table table-hover">
@@ -57,23 +51,15 @@
                         <th scope="col">Remove</th>
                         <th scope="col">Date</th>
                         <th scope="col">Laps</th>
+                        <th scope="col">Distance (m)</th>
                         <th scope="col">Notes</th>
                     </thead>           
                     <tbody id="output"></tbody>
                 </table>
             </div>
         </div>
-    </section>
-    
-<<<<<<< Updated upstream
 
-     
-
-    <script src="/assets/js/functions.js"></script>
-   <script src="/assets/js/main.js"></script> 
-=======
-    <script src="/assets/js/ui.js"></script>
-    <script src="/assets/js/app.js"></script> 
->>>>>>> Stashed changes
+    </div><!--/.container-->
+    <script src="app.js"></script>
 </body>
 </html>
