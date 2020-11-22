@@ -2,7 +2,7 @@
 class Swim {
     constructor() {
         this.newDate = new Date();
-        this.month = newDate.getMonth() + 1;
+        this.month = this.newDate.getMonth() + 1;
         this.day = newDate.getDate();
         this.year = newDate.getFullYear();
 
