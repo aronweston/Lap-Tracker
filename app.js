@@ -20,13 +20,31 @@ class UI {
         const output = document.querySelector("#output");
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td><a href="#" class="removeew2">Remove</a></td>
+            <td><a href="#" class="remove">Remove</a></td>
             <td>${swim.date}</td>
             <td>${swim.laps.value}</td>
             <td>${swim.feeling.value}</td>
             `;
         output.appendChild(row);
     }
+
+    removeSwim(e) {
+        let el = e.target.parentElement.parentElement;
+        if (e.target.parentElement.classList.contains("remove")) {
+            el.remove();
+        }    
+    }
+
+    //removeSwimData(e) {
+
+//     let el = e.target.parentElement.parentElement;
+
+//     if (e.target.parentElement.classList.contains("data-remove"
+//     )) {
+//         el.remove();
+//         removeLS(el);
+//     }    
+// } 
 
     storeSwim() {
         //Data object
@@ -56,13 +74,14 @@ class UI {
     }
 }
 
-
+//Form variables
+const ui = new UI();
+const form = document.getElementById("swim-data");
+const remove = document.querySelector("remove");
 
 //Submit
-document.getElementById("swim-data").addEventListener("submit", (e) => {
+form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const ui = new UI();
-    const swim = new Swim();
     //validation
     if (swim.laps.value === '' || swim.feeling.selectedIndex === null) {
         alert("stop")
@@ -79,6 +98,12 @@ document.getElementById("swim-data").addEventListener("submit", (e) => {
     }
 });
 
+//Remove swim
+document.body.addEventListener("click", (e) => {
+    const ui = new UI();
+    ui.removeSwim();
+    e.preventDefault();
+});
 
 
 
