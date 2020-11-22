@@ -1,6 +1,6 @@
 #Repo specific
 .vscode/*
-
+# .gitignore
 # General
 .DS_Store
 .AppleDouble
